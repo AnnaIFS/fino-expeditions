@@ -1,0 +1,12 @@
+_docs/
+.DS_Store
+Thumbs.db
+*.log
+
+# Unused source assets (not referenced in index.html)
+uploads/dive-leap.mp4
+uploads/mist-rainforest.mp4
+uploads/tierra de agua video 1.mp4
+uploads/jacuzzi-portrait.jpg
+uploads/tierra-de-agua-jacuzzi.png
+uploads/tierra-de-agua-mirador.png

@@ -877,8 +877,8 @@
 <!-- TOP BAR -->
 <header class="topbar">
   <a href="https://fino.website" class="logo-text">FINO</a>
-  <!-- Language toggle: hidden on the live domain until launch; revealed on localhost for preview -->
-  <nav class="lang-switch" aria-label="Language" style="display:none">
+  <!-- Language toggle (EN / ES / RU) -->
+  <nav class="lang-switch" aria-label="Language">
     <button type="button" data-lang="en" class="active">English</button>
     <span class="sep">·</span>
     <button type="button" data-lang="es">Español</button>
@@ -2056,12 +2056,6 @@
   document.querySelectorAll('.lang-switch button').forEach(function(b){
     b.addEventListener('click', function(){ apply(b.getAttribute('data-lang')); });
   });
-
-  // The switch is hidden on the live domain until launch; reveal it locally for preview.
-  var sw = document.querySelector('.lang-switch');
-  var host = location.hostname;
-  var isPreview = host==='localhost' || host==='127.0.0.1' || host==='' || location.hash.indexOf('preview')!==-1;
-  if(sw && isPreview){ sw.style.display='flex'; }
 
   // Sticky bar gains a solid backdrop once the page scrolls, so the switch stays legible and always reachable.
   var topbar = document.querySelector('.topbar');

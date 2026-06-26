@@ -112,6 +112,28 @@
   }
   .topbar .meta{font-size:0.8rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase}
 
+  /* Language switch */
+  .lang-switch{display:flex;align-items:center;gap:2px}
+  .lang-switch button{
+    background:none;border:none;cursor:pointer;
+    font-family:'Outfit', sans-serif;font-size:0.78rem;font-weight:500;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--muted);padding:6px 10px;border-radius:2px;
+    transition:color .2s ease, background .2s ease;
+  }
+  .lang-switch button:hover{color:var(--body)}
+  .lang-switch button.active{
+    color:var(--bg-1);
+    background:linear-gradient(135deg,var(--grad-a),var(--grad-b));
+  }
+  .lang-switch .sep{color:var(--card-border);font-size:0.7rem;user-select:none}
+  /* Longer translated headings need to wrap; English stays on its designed line breaks */
+  html:not([lang="en"]) .hero h1{white-space:normal}
+  @media (max-width:520px){
+    .topbar{padding:18px 20px}
+    .lang-switch button{padding:5px 7px;font-size:0.72rem;letter-spacing:0.08em}
+  }
+
   /* HERO */
   .hero{
     min-height:100vh;
@@ -819,6 +841,14 @@
 <!-- TOP BAR -->
 <header class="topbar">
   <a href="https://fino.website" class="logo-text">FINO</a>
+  <!-- Language toggle: hidden until ES/RU translations are complete -->
+  <nav class="lang-switch" aria-label="Language" style="display:none">
+    <button type="button" data-lang="en" class="active" aria-label="English">EN</button>
+    <span class="sep">·</span>
+    <button type="button" data-lang="es" aria-label="Español">ES</button>
+    <span class="sep">·</span>
+    <button type="button" data-lang="ru" aria-label="Русский">RU</button>
+  </nav>
 </header>
 
 <!-- HERO -->
@@ -827,12 +857,12 @@
   <div class="hero-overlay"></div>
 
   <div class="wrap hero-inner">
-    <span class="section-label">Tierra de Agua · Cocorná, Colombia · December 7 to 13, 2026</span>
-    <h1>An expedition into the<br/><em>depth of who we are.</em></h1>
-    <p class="hero-sub">Six nights with medicine people in the jungle of Colombia. IFS group preparation and integration sessions, movement and Shakti, live music and delicious food. A small group, deep work, beautiful location.</p>
+    <span class="section-label" data-i18n="hero.kicker">Tierra de Agua · Cocorná, Colombia · December 7 to 13, 2026</span>
+    <h1 data-i18n="hero.h1">An expedition into the<br/><em>depth of who we are.</em></h1>
+    <p class="hero-sub" data-i18n="hero.sub">Six nights with medicine people in the jungle of Colombia. IFS group preparation and integration sessions, movement and Shakti, live music and delicious food. A small group, deep work, beautiful location.</p>
     <div class="hero-actions">
-      <a href="#apply" class="btn btn-primary">Send us a message <i class="ph ph-arrow-right"></i></a>
-      <a href="https://calendly.com/thefutureisnow/30min" target="_blank" rel="noopener" class="btn btn-secondary">Book a 30-min call</a>
+      <a href="#apply" class="btn btn-primary"><span data-i18n="hero.cta1">Send us a message</span> <i class="ph ph-arrow-right"></i></a>
+      <a href="https://calendly.com/thefutureisnow/30min" target="_blank" rel="noopener" class="btn btn-secondary" data-i18n="hero.cta2">Book a 30-min call</a>
     </div>
 
   </div>
@@ -842,12 +872,12 @@
 <section style="padding:0">
   <div class="wrap" style="padding:0">
     <div class="meta-strip">
-      <div><div class="k">Place</div><div class="v">Ecohotel Tierra de Agua</div></div>
-      <div><div class="k">Group</div><div class="v">Intentionally small</div></div>
-      <div><div class="k">Language</div><div class="v">English</div></div>
-      <div><div class="k">Arrival</div><div class="v">Medellín</div></div>
+      <div><div class="k" data-i18n="meta.place_k">Place</div><div class="v">Ecohotel Tierra de Agua</div></div>
+      <div><div class="k" data-i18n="meta.group_k">Group</div><div class="v" data-i18n="meta.group_v">Intentionally small</div></div>
+      <div><div class="k" data-i18n="meta.lang_k">Language</div><div class="v" data-i18n="meta.lang_v">English</div></div>
+      <div><div class="k" data-i18n="meta.arrival_k">Arrival</div><div class="v">Medellín</div></div>
     </div>
-    <p class="meta-strip-note">The expedition is held in English. Among us we also speak Italian, Spanish, Portuguese, Polish, and Russian.</p>
+    <p class="meta-strip-note" data-i18n="meta.note">The expedition is held in English. Among us we also speak Italian, Spanish, Portuguese, Polish, and Russian.</p>
   </div>
 </section>
 
@@ -858,14 +888,14 @@
   <div class="wrap">
     <div class="invitation">
       <div class="aside">
-        <span class="section-label">01 · The Invitation</span>
+        <span class="section-label" data-i18n="inv.kicker">01 · The Invitation</span>
         <div class="ph has-img"><img src="uploads/tierra-de-agua-viewpool.jpg" alt="View from the pool at Tierra de Agua, looking out over the misty valley" loading="lazy"/></div>
       </div>
       <div>
-        <h2>A path inward, <em>walked together.</em></h2>
+        <h2 data-i18n="inv.h2">A path inward, <em>walked together.</em></h2>
         <div class="cols">
-          <p>A structured transformational and spiritual journey. Four weeks of preparation. Six nights at an eco-reserve in Cocorná. Four weeks of integration. The week in Colombia is the heart of a deep process of reconnecting with nature inside and outside of ourselves. Exploring what is working, and what is ready to change and release.</p>
-          <p>Held by a multidisciplinary team of medicine people, coaches, body workers, and musicians. IFS coaching, psychology, Andean Chakana ceremony, Cofan medicine, somatic bodywork, Shakti, live music, movement. A team on a mission to walk with you into the depth, and back out together.</p>
+          <p data-i18n="inv.p1">A structured transformational and spiritual journey. Four weeks of preparation. Six nights at an eco-reserve in Cocorná. Four weeks of integration. The week in Colombia is the heart of a deep process of reconnecting with nature inside and outside of ourselves. Exploring what is working, and what is ready to change and release.</p>
+          <p data-i18n="inv.p2">Held by a multidisciplinary team of medicine people, coaches, body workers, and musicians. IFS coaching, psychology, Andean Chakana ceremony, Cofan medicine, somatic bodywork, Shakti, live music, movement. A team on a mission to walk with you into the depth, and back out together.</p>
         </div>
       </div>
     </div>
@@ -875,48 +905,48 @@
 <!-- WHO THIS IS FOR -->
 <section id="fit">
   <div class="wrap">
-    <span class="section-label">02 · Who this is for</span>
+    <span class="section-label" data-i18n="fit.kicker">02 · Who this is for</span>
     <div class="fit-intro">
-      <h2>An invitation to those who feel <em>the call inward.</em></h2>
-      <p>There is no single profile of who comes. What we look for is courage, willingness to look at what is real inside and sometimes hard, and readiness to commit to a process of transformation. Our first conversation is how we make sure the timing is right, for you and for the group you would be joining. We carefully curate the group so we can be a coherent team of explorers for this adventure.</p>
+      <h2 data-i18n="fit.h2">An invitation to those who feel <em>the call inward.</em></h2>
+      <p data-i18n="fit.intro">There is no single profile of who comes. What we look for is courage, willingness to look at what is real inside and sometimes hard, and readiness to commit to a process of transformation. Our first conversation is how we make sure the timing is right, for you and for the group you would be joining. We carefully curate the group so we can be a coherent team of explorers for this adventure.</p>
     </div>
 
     <div class="fit-grid">
       <div>
         <div class="num">01</div>
-        <div class="body">You feel a pull to look inward, whether or not you can yet name what is calling.</div>
+        <div class="body" data-i18n="fit.1">You feel a pull to look inward, whether or not you can yet name what is calling.</div>
       </div>
       <div>
         <div class="num">02</div>
-        <div class="body">You are moving through a transition. Personal, professional, or relational. You are seeking clarity and the next steps you can take.</div>
+        <div class="body" data-i18n="fit.2">You are moving through a transition. Personal, professional, or relational. You are seeking clarity and the next steps you can take.</div>
       </div>
       <div>
         <div class="num">03</div>
-        <div class="body">Your life looks full from the outside, and yet inside there is a quiet absence. You sense it but cannot name it. Meaning, depth, a thread you have lost. You want to find your way back to it.</div>
+        <div class="body" data-i18n="fit.3">Your life looks full from the outside, and yet inside there is a quiet absence. You sense it but cannot name it. Meaning, depth, a thread you have lost. You want to find your way back to it.</div>
       </div>
       <div>
         <div class="num">04</div>
-        <div class="body">You are saturated. The change, the screens, the speed, the noise. You want to go somewhere nature does the holding, and remember what is real underneath all of it.</div>
+        <div class="body" data-i18n="fit.4">You are saturated. The change, the screens, the speed, the noise. You want to go somewhere nature does the holding, and remember what is real underneath all of it.</div>
       </div>
       <div>
         <div class="num">05</div>
-        <div class="body">You are drawn to ancestral medicine, whether or not you have sat with it before. Newcomers and experienced practitioners are both welcome.</div>
+        <div class="body" data-i18n="fit.5">You are drawn to ancestral medicine, whether or not you have sat with it before. Newcomers and experienced practitioners are both welcome.</div>
       </div>
       <div>
         <div class="num">06</div>
-        <div class="body">You hold others for a living. The therapist, the doctor, the lawyer, the founder, the parent. The well has gone quiet and it is time someone holds you.</div>
+        <div class="body" data-i18n="fit.6">You hold others for a living. The therapist, the doctor, the lawyer, the founder, the parent. The well has gone quiet and it is time someone holds you.</div>
       </div>
       <div>
         <div class="num">07</div>
-        <div class="body">You are the strong one in every room, and you rarely allow yourself to be held. For one week, you get to lay that down.</div>
+        <div class="body" data-i18n="fit.7">You are the strong one in every room, and you rarely allow yourself to be held. For one week, you get to lay that down.</div>
       </div>
       <div>
         <div class="num">08</div>
-        <div class="body">You are ready to engage with a full nine-week process. The preparation and the integration as much as the week itself.</div>
+        <div class="body" data-i18n="fit.8">You are ready to engage with a full nine-week process. The preparation and the integration as much as the week itself.</div>
       </div>
     </div>
 
-    <div class="fit-not">
+    <div class="fit-not" data-i18n="fit.note">
       <strong>A note on conversations.</strong> Every applicant has a 30-minute exploratory call with one of us. We use it to listen to what is calling you, what you are bringing, and what the experience asks in return. If now is not the right moment, we say so honestly and offer a place in a future cohort.
     </div>
   </div>
@@ -925,27 +955,27 @@
 <!-- JOURNEY CHAPTERS -->
 <section class="alt" id="journey" style="padding:0">
   <div class="wrap" style="padding:60px 40px 20px">
-    <span class="section-label">03 · The Journey</span>
-    <h2>Nine weeks. Three chapters. <em>Your story.</em></h2>
-    <p style="color:var(--muted)">Four sessions of preparation before we gather. Six nights in Cocorná. Four sessions of integration. Each chapter is part of the work.</p>
+    <span class="section-label" data-i18n="jrn.kicker">03 · The Journey</span>
+    <h2 data-i18n="jrn.h2">Nine weeks. Three chapters. <em>Your story.</em></h2>
+    <p style="color:var(--muted)" data-i18n="jrn.sub">Four sessions of preparation before we gather. Six nights in Cocorná. Four sessions of integration. Each chapter is part of the work.</p>
   </div>
 
   <div class="chapter">
     <div class="ph has-img"><img src="uploads/DSC04635.jpg" alt="Thatched ceremonial maloca at Tierra de Agua" loading="lazy"/></div>
     <div class="text">
-      <span class="tag">Chapter 01 · Preparation</span>
-      <span class="when">Four sessions · Remote · Zoom</span>
-      <h3>Four weeks to arrive, before you arrive.</h3>
-      <p>A 30-minute exploratory conversation with one of us, to understand what is calling you and what the experience asks in return. Four IFS coaching sessions with Dario and Anna, in the Internal Family Systems framework. Together we meet you where you are. We name what you are seeking. We get to know the parts of you that protect, the parts that fear what you are about to do, and the parts that have carried what was too heavy. Dietary and body guidelines for the weeks before. You begin meeting your Self before you meet the sacred plants.</p>
+      <span class="tag" data-i18n="ch1.tag">Chapter 01 · Preparation</span>
+      <span class="when" data-i18n="ch1.when">Four sessions · Remote · Zoom</span>
+      <h3 data-i18n="ch1.h3">Four weeks to arrive, before you arrive.</h3>
+      <p data-i18n="ch1.p">A 30-minute exploratory conversation with one of us, to understand what is calling you and what the experience asks in return. Four IFS coaching sessions with Dario and Anna, in the Internal Family Systems framework. Together we meet you where you are. We name what you are seeking. We get to know the parts of you that protect, the parts that fear what you are about to do, and the parts that have carried what was too heavy. Dietary and body guidelines for the weeks before. You begin meeting your Self before you meet the sacred plants.</p>
     </div>
   </div>
 
   <div class="chapter reverse">
     <div class="text">
-      <span class="tag">Chapter 02 · Immersion</span>
-      <span class="when">Dec 7 to 13, 2026 · Cocorná</span>
-      <h3>Six nights held by the land.</h3>
-      <p>Two night ceremonies of Yagé with Taita Nelson, keeper of the Cofan lineage. One Chakana ceremony with Dario, kuraka in the lineage of Sumak Kawsay and psychologist. IFS integration circles during the stay and between ceremonies. Shakti Dance, functional movement, community bodywork. Silence when it is time for silence, song when it is time for song. Fire that holds the circle at night. Hikes through primary forest. The pool, the river, the jacuzzi tucked into the trees. Food eaten slowly, between people who are becoming a circle.</p>
+      <span class="tag" data-i18n="ch2.tag">Chapter 02 · Immersion</span>
+      <span class="when" data-i18n="ch2.when">Dec 7 to 13, 2026 · Cocorná</span>
+      <h3 data-i18n="ch2.h3">Six nights held by the land.</h3>
+      <p data-i18n="ch2.p">Two night ceremonies of Yagé with Taita Nelson, keeper of the Cofan lineage. One Chakana ceremony with Dario, kuraka in the lineage of Sumak Kawsay and psychologist. IFS integration circles during the stay and between ceremonies. Shakti Dance, functional movement, community bodywork. Silence when it is time for silence, song when it is time for song. Fire that holds the circle at night. Hikes through primary forest. The pool, the river, the jacuzzi tucked into the trees. Food eaten slowly, between people who are becoming a circle.</p>
     </div>
     <div class="ph has-img"><img src="uploads/COL05033-HDR.jpg" alt="Quiet cabin interior with white robe and morning jungle light" loading="lazy"/></div>
   </div>
@@ -953,10 +983,10 @@
   <div class="chapter">
     <div class="ph has-img"><img src="uploads/COL04205-HDR.jpg" alt="Hammock on a bamboo terrace overlooking the Antioquia mountains" loading="lazy"/></div>
     <div class="text">
-      <span class="tag">Chapter 03 · Integration</span>
-      <span class="when">Four sessions · Remote · Zoom</span>
-      <h3>What you carry back.</h3>
-      <p>Four group integration sessions after the return home. Continued access to an optional community of past and current participants. The work is what happens on Tuesday morning, in the conversation you were going to avoid. In interactions with your family. At work. Integration is a lifestyle.</p>
+      <span class="tag" data-i18n="ch3.tag">Chapter 03 · Integration</span>
+      <span class="when" data-i18n="ch3.when">Four sessions · Remote · Zoom</span>
+      <h3 data-i18n="ch3.h3">What you carry back.</h3>
+      <p data-i18n="ch3.p">Four group integration sessions after the return home. Continued access to an optional community of past and current participants. The work is what happens on Tuesday morning, in the conversation you were going to avoid. In interactions with your family. At work. Integration is a lifestyle.</p>
     </div>
   </div>
 </section>
@@ -964,66 +994,66 @@
 <!-- DAY BY DAY (collapsible) -->
 <section id="program" style="padding-bottom:40px">
   <div class="wrap">
-    <span class="section-label">04 · The Week in Cocorná</span>
-    <h2>Day by day.</h2>
-    <p class="muted" style="margin-bottom:8px">A weekly rhythm of ceremony, integration, body, and rest. The program may be adapted based on group dynamics.</p>
+    <span class="section-label" data-i18n="day.kicker">04 · The Week in Cocorná</span>
+    <h2 data-i18n="day.h2">Day by day.</h2>
+    <p class="muted" style="margin-bottom:8px" data-i18n="day.sub">A weekly rhythm of ceremony, integration, body, and rest. The program may be adapted based on group dynamics.</p>
 
     <div class="days">
       <details>
         <summary>
-          <span class="when">Mon · Dec 7</span>
-          <span class="what">Arrival</span>
-          <span class="more">Read</span>
+          <span class="when" data-i18n="day.mon_when">Mon · Dec 7</span>
+          <span class="what" data-i18n="day.mon_what">Arrival</span>
+          <span class="more" data-i18n="day.read">Read</span>
         </summary>
-        <div class="day-body">Meeting point in Medellín in the morning. Shared transfer to Cocorná. Arrival, lunch, and opening circle with presentation of the journey ahead. Movement session with Christian and Andrew to release the body after travel.</div>
+        <div class="day-body" data-i18n="day.mon_body">Meeting point in Medellín in the morning. Shared transfer to Cocorná. Arrival, lunch, and opening circle with presentation of the journey ahead. Movement session with Christian and Andrew to release the body after travel.</div>
       </details>
       <details>
         <summary>
-          <span class="when">Tue · Dec 8</span>
-          <span class="what">First ceremony</span>
-          <span class="more">Read</span>
+          <span class="when" data-i18n="day.tue_when">Tue · Dec 8</span>
+          <span class="what" data-i18n="day.tue_what">First ceremony</span>
+          <span class="more" data-i18n="day.read">Read</span>
         </summary>
-        <div class="day-body">Morning Shakti Dance workshop with Paulina. Afternoon for rest or optional individual sessions. <em>Night ceremony with Taita Nelson.</em></div>
+        <div class="day-body" data-i18n="day.tue_body">Morning Shakti Dance workshop with Paulina. Afternoon for rest or optional individual sessions. <em>Night ceremony with Taita Nelson.</em></div>
       </details>
       <details>
         <summary>
-          <span class="when">Wed · Dec 9</span>
-          <span class="what">Second ceremony</span>
-          <span class="more">Read</span>
+          <span class="when" data-i18n="day.wed_when">Wed · Dec 9</span>
+          <span class="what" data-i18n="day.wed_what">Second ceremony</span>
+          <span class="more" data-i18n="day.read">Read</span>
         </summary>
-        <div class="day-body">Morning of rest and integration. Afternoon of gentle bodywork with Andrew and Christian. <em>Second night ceremony with Taita Nelson.</em></div>
+        <div class="day-body" data-i18n="day.wed_body">Morning of rest and integration. Afternoon of gentle bodywork with Andrew and Christian. <em>Second night ceremony with Taita Nelson.</em></div>
       </details>
       <details>
         <summary>
-          <span class="when">Thu · Dec 10</span>
-          <span class="what">Integration and body</span>
-          <span class="more">Read</span>
+          <span class="when" data-i18n="day.thu_when">Thu · Dec 10</span>
+          <span class="what" data-i18n="day.thu_what">Integration and body</span>
+          <span class="more" data-i18n="day.read">Read</span>
         </summary>
-        <div class="day-body">A day dedicated to integration and rest. Time at the pool, the jacuzzi, in nature. IFS circle in the afternoon, opening with movement and somatic connection with Christian. Optional acupuncture and bodywork sessions with Andrew, Christian, and Adrian.</div>
+        <div class="day-body" data-i18n="day.thu_body">A day dedicated to integration and rest. Time at the pool, the jacuzzi, in nature. IFS circle in the afternoon, opening with movement and somatic connection with Christian. Optional acupuncture and bodywork sessions with Andrew, Christian, and Adrian.</div>
       </details>
       <details>
         <summary>
-          <span class="when">Fri · Dec 11</span>
-          <span class="what">Chakana ceremony</span>
-          <span class="more">Read</span>
+          <span class="when" data-i18n="day.fri_when">Fri · Dec 11</span>
+          <span class="what" data-i18n="day.fri_what">Chakana ceremony</span>
+          <span class="more" data-i18n="day.read">Read</span>
         </summary>
-        <div class="day-body">Walk through the land and visit to a local sugar cane plantation. Afternoon for rest or optional individual sessions. IFS circle in the early evening for intention setting. <em>Night: Chakana ceremony with Dario.</em></div>
+        <div class="day-body" data-i18n="day.fri_body">Walk through the land and visit to a local sugar cane plantation. Afternoon for rest or optional individual sessions. IFS circle in the early evening for intention setting. <em>Night: Chakana ceremony with Dario.</em></div>
       </details>
       <details>
         <summary>
-          <span class="when">Sat · Dec 12</span>
-          <span class="what">Celebration</span>
-          <span class="more">Read</span>
+          <span class="when" data-i18n="day.sat_when">Sat · Dec 12</span>
+          <span class="what" data-i18n="day.sat_what">Celebration</span>
+          <span class="more" data-i18n="day.read">Read</span>
         </summary>
-        <div class="day-body">Delicious food, water activities, live music, and chillout. Optional individual sessions.</div>
+        <div class="day-body" data-i18n="day.sat_body">Delicious food, water activities, live music, and chillout. Optional individual sessions.</div>
       </details>
       <details>
         <summary>
-          <span class="when">Sun · Dec 13</span>
-          <span class="what">Closing and return</span>
-          <span class="more">Read</span>
+          <span class="when" data-i18n="day.sun_when">Sun · Dec 13</span>
+          <span class="what" data-i18n="day.sun_what">Closing and return</span>
+          <span class="more" data-i18n="day.read">Read</span>
         </summary>
-        <div class="day-body">Closing circle, releasing and moving forward. Transfer to Medellín in the morning or early afternoon.</div>
+        <div class="day-body" data-i18n="day.sun_body">Closing circle, releasing and moving forward. Transfer to Medellín in the morning or early afternoon.</div>
       </details>
     </div>
 
@@ -1033,9 +1063,9 @@
 <!-- THE LAND -->
 <section class="alt" id="location" style="padding-bottom:40px">
   <div class="wrap">
-    <span class="section-label">05 · The Land</span>
-    <h2>Tierra de Agua. <em>Land of water.</em></h2>
-    <p class="muted" style="margin-bottom:32px;max-width:62ch">A private eco-reserve in the mountains of Cocorná, two hours east of Medellín. Held by a family that has tended this land since 2007.</p>
+    <span class="section-label" data-i18n="land.kicker">05 · The Land</span>
+    <h2 data-i18n="land.h2">Tierra de Agua. <em>Land of water.</em></h2>
+    <p class="muted" style="margin-bottom:32px;max-width:62ch" data-i18n="land.sub">A private eco-reserve in the mountains of Cocorná, two hours east of Medellín. Held by a family that has tended this land since 2007.</p>
 
     <div class="ph loc-hero has-img"><img src="uploads/tierra-de-agua-watertemple.jpg" alt="Water temple at Tierra de Agua, set into the forest" loading="lazy"/></div>
 
@@ -1047,8 +1077,8 @@
     </div>
 
     <div class="land-intro">
-      <p class="first">We fell in love with this magic land full of life the first time we came here, and we knew we would come back. Water moves through everything. Springs feed the property. Rivers run the valley below. Mist hangs in the trees until the sun burns it off. Monkeys eat bananas, coffee grows beside the ayahuasca vine. Cocorná earns its other name. Tierra de agua. Land of water.</p>
-      <p>The architecture lives in conversation with the forest. Bungalows in guadua, the local bamboo. Open terraces, hammocks, a mirador above the canopy. There are no televisions in the cabins. The screen is the landscape. The soundtrack is the river. Your body remembers this kind of quiet, even when it has forgotten.</p>
+      <p class="first" data-i18n="land.p1">We fell in love with this magic land full of life the first time we came here, and we knew we would come back. Water moves through everything. Springs feed the property. Rivers run the valley below. Mist hangs in the trees until the sun burns it off. Monkeys eat bananas, coffee grows beside the ayahuasca vine. Cocorná earns its other name. Tierra de agua. Land of water.</p>
+      <p data-i18n="land.p2">The architecture lives in conversation with the forest. Bungalows in guadua, the local bamboo. Open terraces, hammocks, a mirador above the canopy. There are no televisions in the cabins. The screen is the landscape. The soundtrack is the river. Your body remembers this kind of quiet, even when it has forgotten.</p>
     </div>
 
     <div class="land-pillars">
@@ -1056,39 +1086,39 @@
         <div class="pillar-photo"><div class="ph has-img"><img src="uploads/tierra-de-agua-jacuzzi-new.jpg" alt="Jacuzzi tucked into the forest at Tierra de Agua" loading="lazy"/></div></div>
         <div class="pillar-body">
           <div class="pillar-num">01</div>
-          <div class="pillar-title">Water, <em>warm and cold.</em></div>
-          <div class="pillar-text">Hydrotherapy under the waterfall. A zone of jacuzzis and a natural turco, the Turkish bath, tucked into the forest. For soaking when the body asks to be held. Thermal-shock pools, if you want them. The land is named for this.</div>
+          <div class="pillar-title" data-i18n="pil1.title">Water, <em>warm and cold.</em></div>
+          <div class="pillar-text" data-i18n="pil1.text">Hydrotherapy under the waterfall. A zone of jacuzzis and a natural turco, the Turkish bath, tucked into the forest. For soaking when the body asks to be held. Thermal-shock pools, if you want them. The land is named for this.</div>
         </div>
       </div>
       <div>
         <div class="pillar-photo"><div class="ph has-img"><img src="uploads/DSC04788.jpg" alt="Tamarin monkey in the canopy at Tierra de Agua" loading="lazy"/></div></div>
         <div class="pillar-body">
           <div class="pillar-num">02</div>
-          <div class="pillar-title">Forest, <em>up close.</em></div>
-          <div class="pillar-text">Primary forest on the property. Tropical birds at first light. Tamarin monkeys in the canopy if you are patient. Silent walks for those who want them.</div>
+          <div class="pillar-title" data-i18n="pil2.title">Forest, <em>up close.</em></div>
+          <div class="pillar-text" data-i18n="pil2.text">Primary forest on the property. Tropical birds at first light. Tamarin monkeys in the canopy if you are patient. Silent walks for those who want them.</div>
         </div>
       </div>
       <div>
         <div class="pillar-photo"><div class="ph has-img"><img src="uploads/DSC04871.jpg" alt="Hibiscus tostadas with avocado and citrus on dark wood" loading="lazy"/></div></div>
         <div class="pillar-body">
           <div class="pillar-num">03</div>
-          <div class="pillar-title">Cocina, <em>de origen.</em></div>
-          <div class="pillar-text">Cuisine of origin and consciousness. Vegetables from the huerta, grown without chemicals. Panela made by hand at the trapiche on the property. Guarapo, fresh sugar cane juice, as the welcome drink. Nourishing our bodies, minds, and souls. Real flavors. Mouthwatering.</div>
+          <div class="pillar-title" data-i18n="pil3.title">Cocina, <em>de origen.</em></div>
+          <div class="pillar-text" data-i18n="pil3.text">Cuisine of origin and consciousness. Vegetables from the huerta, grown without chemicals. Panela made by hand at the trapiche on the property. Guarapo, fresh sugar cane juice, as the welcome drink. Nourishing our bodies, minds, and souls. Real flavors. Mouthwatering.</div>
         </div>
       </div>
       <div>
         <div class="pillar-photo"><div class="ph has-img"><img src="uploads/COL05565-HDR.jpg" alt="Hammock in a bamboo balcony surrounded by green forest" loading="lazy"/></div></div>
         <div class="pillar-body">
           <div class="pillar-num">04</div>
-          <div class="pillar-title">Stillness, <em>by design.</em></div>
-          <div class="pillar-text">The promise here is total connection. Minimal screens. The protagonist sound is the forest. The fogata nocturna, the night fire, is where words start finding their way back.</div>
+          <div class="pillar-title" data-i18n="pil4.title">Stillness, <em>by design.</em></div>
+          <div class="pillar-text" data-i18n="pil4.text">The promise here is total connection. Minimal screens. The protagonist sound is the forest. The fogata nocturna, the night fire, is where words start finding their way back.</div>
         </div>
       </div>
     </div>
 
     <div class="land-closer">
-      <div class="small">Body. Mind. Spirit.</div>
-      <div class="big">This is real spiritual work, and it lives right here. The air on your skin, the food on your tongue, the people across <em>the fire from you.</em></div>
+      <div class="small" data-i18n="land.closer_small">Body. Mind. Spirit.</div>
+      <div class="big" data-i18n="land.closer_big">This is real spiritual work, and it lives right here. The air on your skin, the food on your tongue, the people across <em>the fire from you.</em></div>
     </div>
   </div>
 </section>
@@ -1096,51 +1126,51 @@
 <!-- METHOD -->
 <section id="method" style="padding-top:40px">
   <div class="wrap">
-    <span class="section-label">06 · The Method</span>
-    <h2>Where IFS coaching meets <em>ancestral medicine.</em></h2>
-    <p class="muted" style="margin-bottom:48px;max-width:64ch">Yagé and Chakana reveal what is ready to be seen. IFS shows you how to meet it. Held in alliance with the Cofan, ancient guardians of the Amazon. Three traditions, woven into one coherent path.</p>
+    <span class="section-label" data-i18n="mth.kicker">06 · The Method</span>
+    <h2 data-i18n="mth.h2">Where IFS coaching meets <em>ancestral medicine.</em></h2>
+    <p class="muted" style="margin-bottom:48px;max-width:64ch" data-i18n="mth.sub">Yagé and Chakana reveal what is ready to be seen. IFS shows you how to meet it. Held in alliance with the Cofan, ancient guardians of the Amazon. Three traditions, woven into one coherent path.</p>
 
     <div class="method-cards">
       <div class="method-card">
         <i class="ph ph-tree-structure icon"></i>
-        <div class="title">IFS · The Inner Map</div>
-        <p>Internal Family Systems, developed by Dr. Richard Schwartz, is one of the most researched contemporary frameworks for parts work and inner clarity. It sees the psyche as a family of parts. Protectors and exiles, each with a role, each worth listening to. IFS gives us the map to the inner journey. Weekly group sessions before. Daily circles during. Weekly sessions after. Group work for what we share. Individual support for what is yours alone. The frame is trauma-informed and practical.</p>
+        <div class="title" data-i18n="mth.c1_title">IFS · The Inner Map</div>
+        <p data-i18n="mth.c1_p">Internal Family Systems, developed by Dr. Richard Schwartz, is one of the fastest growing contemporary frameworks for parts work and inner clarity. It sees the psyche as a family of parts. Protectors and exiles, each with a role, each worth listening to. IFS gives us the map to the inner journey. Weekly group sessions before. Daily circles during. Weekly sessions after. Group work for what we share. Individual support for what is yours alone. The frame is trauma-informed and practical.</p>
       </div>
       <div class="method-card">
         <i class="ph ph-leaf icon"></i>
-        <div class="title">Cofan Lineage · Yagé</div>
-        <p>Two night ceremonies with Taita Nelson, a medicine keeper of the Cofan people. The Cofan are an Amazonian nation of Colombia and Ecuador. Fewer than two thousand of them. Guardians of more than a million acres of rainforest. Their tradition holds that the world has three levels, and that the <em>invisibles</em>, the guardians of the forest, can be met in the depth of ceremony. Yagé and mambe are served in the protocols of his lineage, in an alliance built over years of work together.</p>
+        <div class="title" data-i18n="mth.c2_title">Cofan Lineage · Yagé</div>
+        <p data-i18n="mth.c2_p">Two night ceremonies with Taita Nelson, a medicine keeper of the Cofan people. The Cofan are an Amazonian nation of Colombia and Ecuador. Fewer than two thousand of them. Guardians of more than a million acres of rainforest. Their tradition holds that the world has three levels, and that the <em>invisibles</em>, the guardians of the forest, can be met in the depth of ceremony. Yagé is served in the protocols of his lineage, in an alliance built over years of work together.</p>
       </div>
       <div class="method-card">
         <i class="ph ph-compass icon"></i>
-        <div class="title">Andean Path · The Chakana</div>
-        <p>One Chakana ceremony on Friday night, led by Dario. The four elements and the directions of Andean medicine. Water and stone. Fire and breath. Dario is the organizer of the expedition and the lead facilitator of the arc, holding the alliance with our Cofan partners and the rhythm of the journey.</p>
+        <div class="title" data-i18n="mth.c3_title">Andean Path · The Chakana</div>
+        <p data-i18n="mth.c3_p">One Chakana ceremony on Friday night, led by Dario. The four elements and the directions of Andean medicine. Water and stone. Fire and breath. Dario is the organizer of the expedition and the lead facilitator of the arc, holding the alliance with our Cofan partners and the rhythm of the journey.</p>
       </div>
     </div>
 
-    <div class="modalities-label">The healing arts woven through</div>
-    <h3 class="modalities-title">A team of practitioners, <em>working in coherence.</em></h3>
+    <div class="modalities-label" data-i18n="mth.mod_label">The healing arts woven through</div>
+    <h3 class="modalities-title" data-i18n="mth.mod_title">A team of practitioners, <em>working in coherence.</em></h3>
 
     <div class="modalities">
       <div class="modality">
         <i class="ph ph-circle-half icon"></i>
-        <h4>IFS Circles</h4>
-        <p>Group circles with Anna and Dario before and after ceremonies to meet your parts, set intentions, and witness one another with care.</p>
+        <h4 data-i18n="mod1.h">IFS Circles</h4>
+        <p data-i18n="mod1.p">Group circles with Anna and Dario before and after ceremonies to meet your parts, set intentions, and witness one another with care.</p>
       </div>
       <div class="modality">
         <i class="ph ph-hand-heart icon"></i>
-        <h4>Movement &amp; Bodywork</h4>
-        <p>Functional movement, somatic bodywork, Vedic Thai, acupuncture, vagus-nerve work. The body integrating in real time.</p>
+        <h4 data-i18n="mod2.h">Movement &amp; Bodywork</h4>
+        <p data-i18n="mod2.p">Functional movement, somatic bodywork, Vedic Thai, acupuncture, vagus-nerve work with Christian, Andrew, and Adrian. The body integrating in real time.</p>
       </div>
       <div class="modality">
         <i class="ph ph-music-notes icon"></i>
-        <h4>Sound, Song &amp; Dance</h4>
-        <p>Shakti Dance with Paulina. Medicine music with the team. Sound as a vehicle for what words cannot carry.</p>
+        <h4 data-i18n="mod3.h">Sound, Song &amp; Dance</h4>
+        <p data-i18n="mod3.p">Shakti Dance with Paulina. Medicine music with the team. Sound as a vehicle for what words cannot carry.</p>
       </div>
       <div class="modality">
         <i class="ph ph-tree icon"></i>
-        <h4>Nature Immersion</h4>
-        <p>Walks through the reserve, time by the river, hydrotherapy under the waterfall. The land itself is part of the practice.</p>
+        <h4 data-i18n="mod4.h">Nature Immersion</h4>
+        <p data-i18n="mod4.p">Walks through the reserve, time by the river, hydrotherapy under the waterfall. The land itself is part of the practice.</p>
       </div>
     </div>
   </div>
@@ -1149,29 +1179,29 @@
 <!-- FACILITATORS -->
 <section class="alt" id="facilitators">
   <div class="wrap">
-    <span class="section-label">07 · The Team</span>
-    <h2>Seven practitioners, <em>held by the same fire.</em></h2>
-    <p class="muted" style="margin-bottom:48px">Each carrying their own discipline and lineage, working together in coherence.</p>
+    <span class="section-label" data-i18n="team.kicker">07 · The Team</span>
+    <h2 data-i18n="team.h2">Seven practitioners, <em>held by the same fire.</em></h2>
+    <p class="muted" style="margin-bottom:48px" data-i18n="team.sub">Each carrying their own discipline and lineage, working together in coherence.</p>
 
     <div class="leads team-grid">
       <div class="lead">
         <div class="ph has-img"><img class="tight-face" src="uploads/team-dario.jpg" alt="Portrait of Dario Hampi Pakari" loading="lazy"/></div>
         <h3>Dario Hampi Pakari</h3>
-        <div class="role">Lead facilitator</div>
+        <div class="role" data-i18n="fac.dario_role">Kuraka and Psychologist</div>
         <div class="langs-mini">IT · ES · EN · PT</div>
-        <p>FINO co-founder. Organizational Psychologist trained at Sapienza University in Rome. IFS Practitioner, medicine man, and vision quester. Over twenty years working between modern psychology and Sumak Kawsay, the Andean philosophy of living well. Founded Fuoco Sacro in Italy and Sumak Kawsay Iglesia del Buen Vivir in Florida. Leads the Chakana ceremony and holds the alliance with our Cofán partners.</p>
+        <p data-i18n="fac.dario_p">FINO co-founder. Organizational Psychologist trained at Sapienza University in Rome. IFS Practitioner, medicine man, vision quester, and sundancer. Over twenty years working between modern psychology and Sumak Kawsay, the Andean philosophy of living well. Founded Fuoco Sacro in Italy and Sumak Kawsay Iglesia del Buen Vivir in Florida. Leads the Chakana ceremony and holds the alliance with our Cofán partners.</p>
       </div>
       <div class="lead">
         <div class="ph has-img"><img src="uploads/team-taita-nelson.jpg" alt="Portrait of Taita Nelson Díaz Queta" loading="lazy"/></div>
         <h3>Taita Nelson Díaz Queta</h3>
         <div class="role">Cofán traditional doctor</div>
         <div class="langs-mini">ES</div>
-        <p>A traditional doctor (Taita) of the Cofán (A'i) people of the Colombian Amazon in Putumayo. Hereditary guardian of the Yagé tradition. Son of Ofelia Queta Alvarado and the elder Taita Diomedes Díaz. His family name, Queta, links him to the late Taita Querubín Queta, a revered figure in Amazonian shamanism who lived to 110 and passed in 2024. The Díaz Queta family carries the ancestral knowledge across generations, despite displacement from their territories. Leads the two night ceremonies of Yagé and mambe in the protocols handed to him, in an alliance built with us over years of work together.</p>
+        <p>A traditional doctor (Taita) of the Cofán (A'i) people of the Colombian Amazon in Putumayo. Hereditary guardian of the Yagé tradition. Son of Ofelia Queta Alvarado and the elder Taita Diomedes Díaz. His family name, Queta, links him to the late Taita Querubín Queta, a revered figure in Amazonian shamanism who lived to 110 and passed in 2024. The Díaz Queta family carries the ancestral knowledge across generations, despite displacement from their territories. Leads the two night ceremonies of Yagé in the protocols handed to him, in an alliance built with us over years of work together.</p>
       </div>
       <div class="lead">
         <div class="ph has-img"><img src="uploads/team-anna.jpg" alt="Portrait of Anna Milaeva" loading="lazy"/></div>
         <h3>Anna Milaeva</h3>
-        <div class="role">IFS coaching lead</div>
+        <div class="role">Transformational IFS Coach</div>
         <div class="langs-mini">EN · ES · RU</div>
         <p>FINO co-founder. Level 3 IFS Practitioner, trained at the IFS Institute, and Certified Deep Transformational Coach. Ten years in startup operations before turning to this work full-time. Clients across more than fifteen countries. Leads the IFS arc of the journey, before, during, and after the week in Cocorná.</p>
       </div>

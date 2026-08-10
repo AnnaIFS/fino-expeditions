@@ -126,6 +126,16 @@
     letter-spacing:0.12em;color:var(--body);
   }
   .topbar .meta{font-size:0.8rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase}
+  /* Expedition dates, always on screen in the fixed bar */
+  .topbar-dates{
+    display:inline-flex;align-items:center;gap:9px;
+    font-family:'Outfit','Manrope',sans-serif;
+    font-size:0.82rem;font-weight:500;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--grad-b);white-space:nowrap;
+    text-shadow:0 1px 10px rgba(0,0,0,0.85), 0 1px 3px rgba(0,0,0,0.6);
+  }
+  .topbar-dates i{font-size:1.05rem;line-height:1}
 
   /* Language switch — full native names, centered in the bar, gently animated */
   .lang-switch{
@@ -172,6 +182,8 @@
     header.topbar{flex-direction:column;justify-content:center;align-items:center;gap:14px;padding:13px 16px}
     .topbar.scrolled{padding-top:9px;padding-bottom:9px;gap:10px}
     .topbar .logo-text{font-size:1.4rem;line-height:1}
+    .topbar-dates{font-size:0.74rem;letter-spacing:0.1em;gap:7px}
+    .topbar-dates i{font-size:0.95rem}
     .lang-switch{
       position:static;transform:none;animation:none;gap:2px;
       background:rgba(11,10,8,0.6);
@@ -241,6 +253,19 @@
     margin:28px auto 0;max-width:62ch;
     font-size:1.05rem;line-height:1.7;color:var(--body);
   }
+  /* Date plate in the hero. The one fact a visitor scans for first. */
+  .hero-dates{
+    display:inline-flex;align-items:center;gap:14px;
+    margin-top:30px;padding:13px 30px;
+    border:1px solid rgba(240,160,24,0.5);border-radius:999px;
+    background:rgba(11,10,8,0.42);
+    backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+    font-family:'Cormorant SC','Playfair Display',serif;
+    font-size:clamp(1.15rem,2.1vw,1.55rem);
+    letter-spacing:0.06em;color:#fff;
+    text-shadow:0 1px 12px rgba(0,0,0,0.7);
+  }
+  .hero-dates i{color:var(--grad-b);font-size:1.1em;line-height:1}
   .hero-actions{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap;justify-content:center}
   .hero-meta{
     display:grid;grid-template-columns:repeat(4, 1fr);
@@ -253,9 +278,12 @@
 
   /* META STRIP */
   .meta-strip{
-    display:grid;grid-template-columns:repeat(4,1fr);
+    display:grid;grid-template-columns:repeat(5,1fr);
     border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);
   }
+  /* Dates lead the strip and are the one cell allowed to shout */
+  .meta-strip .meta-dates .k{color:var(--grad-b)}
+  .meta-strip .meta-dates .v{color:#fff;font-weight:500}
   .meta-strip > div{padding:32px 28px;border-left:1px solid var(--card-border)}
   .meta-strip > div:first-child{border-left:none}
   .meta-strip .k{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
@@ -678,10 +706,12 @@
     .hero h1{white-space:normal}
     .hero::before{left:20px;top:96px;font-size:0.6rem}
     .hero-meta{gap:24px}
+    /* Dates take the full width and lead; the other four fall into 2x2 beneath */
     .meta-strip{grid-template-columns:1fr 1fr}
     .meta-strip > div{border-left:none;border-top:1px solid var(--card-border);padding:24px 20px}
-    .meta-strip > div:nth-child(2n){border-left:1px solid var(--card-border)}
-    .meta-strip > div:nth-child(-n+2){border-top:none}
+    .meta-strip > .meta-dates{grid-column:1 / -1;border-top:none;text-align:center}
+    .meta-strip > div:nth-child(3),
+    .meta-strip > div:nth-child(5){border-left:1px solid var(--card-border)}
     .invitation{grid-template-columns:1fr;gap:32px}
     .invitation .cols{grid-template-columns:1fr;gap:20px}
     .chapter{grid-template-columns:1fr}
@@ -896,6 +926,7 @@
 <!-- TOP BAR -->
 <header class="topbar">
   <span class="logo-text">FINO</span>
+  <span class="topbar-dates"><i class="ph ph-calendar-blank" aria-hidden="true"></i><span data-i18n="topbar.dates">December 7 to 13, 2026</span></span>
   <!-- Language toggle (EN / ES / RU) -->
   <nav class="lang-switch" aria-label="Language">
     <button type="button" data-lang="en" class="active">English</button>
@@ -912,9 +943,10 @@
   <div class="hero-overlay"></div>
 
   <div class="wrap hero-inner">
-    <span class="section-label" data-i18n="hero.kicker">Tierra de Agua · Cocorná, Colombia · December 7 to 13, 2026</span>
+    <span class="section-label" data-i18n="hero.kicker">Tierra de Agua · Cocorná, Colombia</span>
     <h1 data-i18n="hero.h1">An expedition into the<br/><em>depth of who we are.</em></h1>
     <p class="hero-sub" data-i18n="hero.sub">Six nights with medicine people in the jungle of Colombia. IFS group preparation and integration sessions, movement and Shakti, live music and delicious food. A small group, deep work, beautiful location.</p>
+    <div><span class="hero-dates"><i class="ph ph-calendar-blank" aria-hidden="true"></i><span data-i18n="hero.dates">December 7 to 13, 2026</span></span></div>
     <div class="hero-actions">
       <a href="#apply" class="btn btn-primary"><span data-i18n="hero.cta1">Send us a message</span> <i class="ph ph-arrow-right"></i></a>
       <a href="https://calendly.com/thefutureisnow/30min" target="_blank" rel="noopener" class="btn btn-secondary" data-i18n="hero.cta2">Book a 30-min call</a>
@@ -927,6 +959,7 @@
 <section style="padding:0">
   <div class="wrap" style="padding:0">
     <div class="meta-strip">
+      <div class="meta-dates"><div class="k" data-i18n="meta.dates_k">Dates</div><div class="v" data-i18n="meta.dates_v">December 7 to 13, 2026</div></div>
       <div><div class="k" data-i18n="meta.place_k">Place</div><div class="v" data-i18n="meta.place_v">Ecohotel Tierra de Agua</div></div>
       <div><div class="k" data-i18n="meta.group_k">Group</div><div class="v" data-i18n="meta.group_v">Intentionally small</div></div>
       <div><div class="k" data-i18n="meta.lang_k">Language</div><div class="v" data-i18n="meta.lang_v">English</div></div>
@@ -1028,7 +1061,7 @@
   <div class="chapter reverse">
     <div class="text">
       <span class="tag" data-i18n="ch2.tag">Chapter 02 · Immersion</span>
-      <span class="when" data-i18n="ch2.when">Dec 7 to 13, 2026 · Cocorná</span>
+      <span class="when" data-i18n="ch2.when">December 7 to 13, 2026 · Cocorná</span>
       <h3 data-i18n="ch2.h3">Six nights held by the land.</h3>
       <p data-i18n="ch2.p">Two night ceremonies of Yagé with Taita Nelson, keeper of the Cofan lineage. One Chakana ceremony with Dario Hampi Pakari, kuraka in the lineage of Sumak Kawsay and psychologist. IFS integration circles during the stay and between ceremonies. Shakti Dance, functional movement, community bodywork. Silence when it is time for silence, song when it is time for song. Fire that holds the circle at night. Hikes through primary forest. The pool, the river, the jacuzzi tucked into the trees. Food eaten slowly, between people who are becoming a circle.</p>
     </div>
@@ -1402,10 +1435,10 @@
       <div class="tl-when" data-i18n="tl.w2">Before the immersion</div>
       <div class="tl-what" data-i18n="tl.t2">Four online IFS group sessions with Dario and Anna. Dietary and body preparation guidelines.</div>
 
-      <div class="tl-when" data-i18n="tl.w3">7 Dec 2026</div>
+      <div class="tl-when" data-i18n="tl.w3">December 7, 2026</div>
       <div class="tl-what" data-i18n="tl.t3">Meeting in Medellín. Beginning of the immersion in Cocorná.</div>
 
-      <div class="tl-when" data-i18n="tl.w4">13 Dec 2026</div>
+      <div class="tl-when" data-i18n="tl.w4">December 13, 2026</div>
       <div class="tl-what" data-i18n="tl.t4">Closing of the immersion. Return home.</div>
 
       <div class="tl-when" data-i18n="tl.w5">After the return</div>
@@ -1613,7 +1646,11 @@
 (function(){
   var I18N = {
     es: {
-      "hero.kicker":"Tierra de Agua · Cocorná, Colombia · 7 al 13 de diciembre de 2026",
+      "hero.kicker":"Tierra de Agua · Cocorná, Colombia",
+      "topbar.dates":"7 al 13 de diciembre de 2026",
+      "hero.dates":"7 al 13 de diciembre de 2026",
+      "meta.dates_k":"Fechas",
+      "meta.dates_v":"7 al 13 de diciembre de 2026",
       "hero.h1":"Una expedición hacia la<br/><em>profundidad de quienes somos.</em>",
       "hero.sub":"Seis noches con maestros de medicina en la selva de Colombia. Sesiones grupales de preparación e integración con IFS, movimiento y Shakti, música en vivo y comida deliciosa. Un grupo pequeño, trabajo profundo, un lugar hermoso.",
       "hero.cta1":"Escríbenos",
@@ -1773,9 +1810,9 @@
       "tl.t1":"Aplicaciones abiertas. Cada una leída en persona. Cada persona conocida a través de una conversación individual.",
       "tl.w2":"Antes de la inmersión",
       "tl.t2":"Cuatro sesiones grupales de IFS en línea con Dario y Anna. Dieta y preparación del cuerpo.",
-      "tl.w3":"7 dic 2026",
+      "tl.w3":"7 de diciembre de 2026",
       "tl.t3":"Encuentro en Medellín. Inicio de la inmersión en Cocorná.",
-      "tl.w4":"13 dic 2026",
+      "tl.w4":"13 de diciembre de 2026",
       "tl.t4":"Cierre de la inmersión. Regreso a casa.",
       "tl.w5":"Después del regreso",
       "tl.t5":"Cuatro sesiones grupales de integración en línea. Comunidad opcional y continua para participantes.",
@@ -1823,7 +1860,11 @@
       "form.sending":"Enviando…"
     },
     ru: {
-      "hero.kicker":"Tierra de Agua · Кокорна, Колумбия · 7–13 декабря 2026",
+      "hero.kicker":"Tierra de Agua · Кокорна, Колумбия",
+      "topbar.dates":"7–13 декабря 2026",
+      "hero.dates":"7–13 декабря 2026",
+      "meta.dates_k":"Даты",
+      "meta.dates_v":"7–13 декабря 2026",
       "hero.h1":"Экспедиция вглубь<br/><em>самих себя.</em>",
       "hero.sub":"Шесть ночей с хранителями медицины в джунглях Колумбии. Групповые IFS-сессии подготовки и интеграции, телесные практики и Shakti Dance, живая музыка и вкусная еда. Небольшая группа, глубокая работа, красивое место.",
       "hero.cta1":"Напиши нам",
@@ -1992,9 +2033,9 @@
       "tl.t1":"Открыт приём заявок. Каждую читаем лично. С каждым знакомимся в личном разговоре.",
       "tl.w2":"Перед погружением",
       "tl.t2":"Четыре групповые онлайн-сессии IFS с Дарио и Анной. Рекомендации по питанию и подготовке тела.",
-      "tl.w3":"7 дек 2026",
+      "tl.w3":"7 декабря 2026",
       "tl.t3":"Встреча в Медельине. Начало погружения в Кокорне.",
-      "tl.w4":"13 дек 2026",
+      "tl.w4":"13 декабря 2026",
       "tl.t4":"Завершение погружения. Возвращение домой.",
       "tl.w5":"После возвращения",
       "tl.t5":"Четыре групповые онлайн-сессии интеграции. Постоянный круг для участников, по желанию.",

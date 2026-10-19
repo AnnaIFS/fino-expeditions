@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Cocorná · An expedition into the depth of who we are · December 2026 · FINO</title>
-<meta name="description" content="An expedition into the depth of who we are. Four sessions of preparation, six nights in the highlands of Colombia, four sessions of group integration. IFS coaching in coherence with Cofán and Andean ancestral medicine. Cocorná, December 2026." />
+<title>Cocorná · An expedition into the depth of who we are · December 2027 · FINO</title>
+<meta name="description" content="An expedition into the depth of who we are. Four sessions of preparation, six nights in the highlands of Colombia, four sessions of group integration. IFS coaching in coherence with Cofán and Andean ancestral medicine. Cocorná, December 2027, exact dates confirmed soon." />
 
 <link rel="canonical" href="https://expeditions.fino.website/" />
 
@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="FINO Expeditions" />
 <meta property="og:url" content="https://expeditions.fino.website/" />
 <meta property="og:title" content="Cocorná · An expedition into the depth of who we are" />
-<meta property="og:description" content="Six nights in the highlands of Colombia. Four sessions of preparation, four sessions of group integration. IFS coaching in coherence with Cofán and Andean medicine. December 7 to 13, 2026." />
+<meta property="og:description" content="Six nights in the highlands of Colombia. Four sessions of preparation, four sessions of group integration. IFS coaching in coherence with Cofán and Andean medicine. December 2027, exact dates confirmed soon." />
 <meta property="og:image" content="https://expeditions.fino.website/uploads/tierra-de-agua-fullview.jpg" />
 <meta property="og:image:alt" content="Panoramic view of Tierra de Agua eco-reserve in the highlands of Cocorná, Colombia" />
 <meta property="og:image:width" content="2200" />
@@ -21,7 +21,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Cocorná · An expedition into the depth of who we are" />
-<meta name="twitter:description" content="Six nights in the highlands of Colombia. IFS coaching in coherence with Cofán and Andean medicine. December 7 to 13, 2026." />
+<meta name="twitter:description" content="Six nights in the highlands of Colombia. IFS coaching in coherence with Cofán and Andean medicine. December 2027, exact dates confirmed soon." />
 <meta name="twitter:image" content="https://expeditions.fino.website/uploads/tierra-de-agua-fullview.jpg" />
 
 <meta name="theme-color" content="#0b0a08" />
@@ -200,6 +200,22 @@
     .hero-actions{flex-direction:column;align-items:stretch;width:100%;gap:10px}
     .hero-actions .btn{width:100%;justify-content:center;text-align:center}
   }
+  /* Tablet and small laptop: the centered language switch would run into the longer
+     date line, so all three items share the bar instead */
+  @media (min-width:601px) and (max-width:1250px){
+    .topbar{padding-left:24px;padding-right:24px;gap:20px}
+    .lang-switch{position:static;transform:none;animation:none}
+    .topbar-dates{font-size:0.72rem;letter-spacing:0.1em;gap:7px}
+  }
+  /* Narrowest of that range: trim both so the three languages stay whole */
+  @media (min-width:601px) and (max-width:860px){
+    .topbar{padding-left:18px;padding-right:18px;gap:12px}
+    .topbar-dates{font-size:0.64rem;letter-spacing:0.08em;gap:6px}
+    .topbar-dates i{font-size:0.95rem}
+    .lang-switch{gap:0}
+    .lang-switch button{font-size:0.92rem;padding:4px 6px}
+    .lang-switch .sep{display:none}
+  }
 
   /* HERO */
   .hero{
@@ -288,7 +304,7 @@
   .meta-strip > div:first-child{border-left:none}
   .meta-strip .k{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
   .meta-strip .v{font-family:'Cormorant SC', 'Playfair Display', serif;font-size:1.5rem;color:var(--body)}
-  .meta-strip-note{margin:22px auto 0;max-width:780px;padding:0 20px;font-size:0.95rem;color:var(--grad-b);font-style:italic;text-align:center;line-height:1.6}
+  .meta-strip-note{margin:22px auto clamp(34px,5vw,60px);max-width:780px;padding:0 20px;font-size:0.95rem;color:var(--grad-b);font-style:italic;text-align:center;line-height:1.6}
 
   /* Invitation */
   .invitation{display:grid;grid-template-columns:0.5fr 1fr;gap:60px}
@@ -705,6 +721,8 @@
     .hero{padding:90px 0 60px;min-height:80vh}
     .hero h1{white-space:normal}
     .hero::before{left:20px;top:96px;font-size:0.6rem}
+    /* The date plate carries a longer line now; keep it on one row */
+    .hero-dates{font-size:0.98rem;gap:10px;padding:12px 20px;letter-spacing:0.04em}
     .hero-meta{gap:24px}
     /* Dates take the full width and lead; the other four fall into 2x2 beneath */
     .meta-strip{grid-template-columns:1fr 1fr}
@@ -746,6 +764,7 @@
     .section-label{font-size:0.85rem}
   }
   @media (max-width: 520px){
+    .hero-dates{font-size:0.86rem;gap:8px;padding:11px 16px;letter-spacing:0.03em}
     .meta-strip{grid-template-columns:1fr}
     .meta-strip > div{border-left:none !important;border-top:1px solid var(--card-border)}
     .meta-strip > div:first-child{border-top:none}
@@ -789,11 +808,11 @@
   "@graph": [
     {
       "@type": "Event",
-      "@id": "https://expeditions.fino.website/#cocorna-2026",
+      "@id": "https://expeditions.fino.website/#cocorna-2027",
       "name": "Cocorná · An expedition into the depth of who we are",
       "description": "A transformational journey combining four online IFS preparation sessions, six nights of immersion at Ecohotel Tierra de Agua in Cocorná, Colombia, and four online group integration sessions. Two night ceremonies of Yagé with Taita Nelson Díaz Queta (Cofán lineage). One Chakana ceremony with Dario Hampi Pakari (Andean tradition).",
-      "startDate": "2026-12-07",
-      "endDate": "2026-12-13",
+      "startDate": "2027-12",
+      "endDate": "2027-12",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "location": {
@@ -896,7 +915,7 @@
           "name": "How do I get there? Are flights included?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Fly into Medellín (MDE, José María Córdova International Airport). We meet on Monday December 7 in the morning at a central point in Medellín and travel together by shared transfer to Cocorná. Return on Sunday December 13. International flights are not included."
+            "text": "Fly into Medellín (MDE, José María Córdova International Airport). We meet on the first morning at a central point in Medellín and travel together by shared transfer to Cocorná. Return on the last day. International flights are not included."
           }
         },
         {
@@ -926,7 +945,7 @@
 <!-- TOP BAR -->
 <header class="topbar">
   <span class="logo-text">FINO</span>
-  <span class="topbar-dates"><i class="ph ph-calendar-blank" aria-hidden="true"></i><span data-i18n="topbar.dates">December 7 to 13, 2026</span></span>
+  <span class="topbar-dates"><i class="ph ph-calendar-blank" aria-hidden="true"></i><span data-i18n="topbar.dates">December 2027 · exact dates soon</span></span>
   <!-- Language toggle (EN / ES / RU) -->
   <nav class="lang-switch" aria-label="Language">
     <button type="button" data-lang="en" class="active">English</button>
@@ -946,7 +965,7 @@
     <span class="section-label" data-i18n="hero.kicker">Tierra de Agua · Cocorná, Colombia</span>
     <h1 data-i18n="hero.h1">An expedition into the<br/><em>depth of who we are.</em></h1>
     <p class="hero-sub" data-i18n="hero.sub">Six nights with medicine people in the jungle of Colombia. IFS group preparation and integration sessions, movement and Shakti, live music and delicious food. A small group, deep work, beautiful location.</p>
-    <div><span class="hero-dates"><i class="ph ph-calendar-blank" aria-hidden="true"></i><span data-i18n="hero.dates">December 7 to 13, 2026</span></span></div>
+    <div><span class="hero-dates"><i class="ph ph-calendar-blank" aria-hidden="true"></i><span data-i18n="hero.dates">December 2027 · exact dates soon</span></span></div>
     <div class="hero-actions">
       <a href="#apply" class="btn btn-primary"><span data-i18n="hero.cta1">Send us a message</span> <i class="ph ph-arrow-right"></i></a>
       <a href="https://calendly.com/thefutureisnow/30min" target="_blank" rel="noopener" class="btn btn-secondary" data-i18n="hero.cta2">Book a 30-min call</a>
@@ -959,13 +978,13 @@
 <section style="padding:0">
   <div class="wrap" style="padding:0">
     <div class="meta-strip">
-      <div class="meta-dates"><div class="k" data-i18n="meta.dates_k">Dates</div><div class="v" data-i18n="meta.dates_v">December 7 to 13, 2026</div></div>
+      <div class="meta-dates"><div class="k" data-i18n="meta.dates_k">Dates</div><div class="v" data-i18n="meta.dates_v">December 2027</div></div>
       <div><div class="k" data-i18n="meta.place_k">Place</div><div class="v" data-i18n="meta.place_v">Ecohotel Tierra de Agua</div></div>
       <div><div class="k" data-i18n="meta.group_k">Group</div><div class="v" data-i18n="meta.group_v">Intentionally small</div></div>
       <div><div class="k" data-i18n="meta.lang_k">Language</div><div class="v" data-i18n="meta.lang_v">English</div></div>
       <div><div class="k" data-i18n="meta.arrival_k">Arrival</div><div class="v" data-i18n="meta.arrival_v">Medellín</div></div>
     </div>
-    <p class="meta-strip-note" data-i18n="meta.note">The expedition is held in English. Among us we also speak Italian, Spanish, Portuguese, Polish, and Russian.</p>
+    <p class="meta-strip-note" data-i18n="meta.note">The exact dates will be confirmed soon. The expedition is held in English. Among us we also speak Italian, Spanish, Portuguese, Polish, and Russian.</p>
   </div>
 </section>
 
@@ -1061,7 +1080,7 @@
   <div class="chapter reverse">
     <div class="text">
       <span class="tag" data-i18n="ch2.tag">Chapter 02 · Immersion</span>
-      <span class="when" data-i18n="ch2.when">December 7 to 13, 2026 · Cocorná</span>
+      <span class="when" data-i18n="ch2.when">December 2027 · Cocorná · exact dates soon</span>
       <h3 data-i18n="ch2.h3">Six nights held by the land.</h3>
       <p data-i18n="ch2.p">Two night ceremonies of Yagé with Taita Nelson, keeper of the Cofan lineage. One Chakana ceremony with Dario Hampi Pakari, kuraka in the lineage of Sumak Kawsay and psychologist. IFS integration circles during the stay and between ceremonies. Shakti Dance, functional movement, community bodywork. Silence when it is time for silence, song when it is time for song. Fire that holds the circle at night. Hikes through primary forest. The pool, the river, the jacuzzi tucked into the trees. Food eaten slowly, between people who are becoming a circle.</p>
     </div>
@@ -1089,7 +1108,7 @@
     <div class="days">
       <details>
         <summary>
-          <span class="when" data-i18n="day.mon_when">Mon · Dec 7</span>
+          <span class="when" data-i18n="day.mon_when">Day 1</span>
           <span class="what" data-i18n="day.mon_what">Arrival</span>
           <span class="more" data-i18n="day.read">Read</span>
         </summary>
@@ -1097,7 +1116,7 @@
       </details>
       <details>
         <summary>
-          <span class="when" data-i18n="day.tue_when">Tue · Dec 8</span>
+          <span class="when" data-i18n="day.tue_when">Day 2</span>
           <span class="what" data-i18n="day.tue_what">First ceremony</span>
           <span class="more" data-i18n="day.read">Read</span>
         </summary>
@@ -1105,7 +1124,7 @@
       </details>
       <details>
         <summary>
-          <span class="when" data-i18n="day.wed_when">Wed · Dec 9</span>
+          <span class="when" data-i18n="day.wed_when">Day 3</span>
           <span class="what" data-i18n="day.wed_what">Second ceremony</span>
           <span class="more" data-i18n="day.read">Read</span>
         </summary>
@@ -1113,7 +1132,7 @@
       </details>
       <details>
         <summary>
-          <span class="when" data-i18n="day.thu_when">Thu · Dec 10</span>
+          <span class="when" data-i18n="day.thu_when">Day 4</span>
           <span class="what" data-i18n="day.thu_what">Integration and body</span>
           <span class="more" data-i18n="day.read">Read</span>
         </summary>
@@ -1121,7 +1140,7 @@
       </details>
       <details>
         <summary>
-          <span class="when" data-i18n="day.fri_when">Fri · Dec 11</span>
+          <span class="when" data-i18n="day.fri_when">Day 5</span>
           <span class="what" data-i18n="day.fri_what">Chakana ceremony</span>
           <span class="more" data-i18n="day.read">Read</span>
         </summary>
@@ -1129,7 +1148,7 @@
       </details>
       <details>
         <summary>
-          <span class="when" data-i18n="day.sat_when">Sat · Dec 12</span>
+          <span class="when" data-i18n="day.sat_when">Day 6</span>
           <span class="what" data-i18n="day.sat_what">Celebration</span>
           <span class="more" data-i18n="day.read">Read</span>
         </summary>
@@ -1137,7 +1156,7 @@
       </details>
       <details>
         <summary>
-          <span class="when" data-i18n="day.sun_when">Sun · Dec 13</span>
+          <span class="when" data-i18n="day.sun_when">Day 7</span>
           <span class="what" data-i18n="day.sun_what">Closing and return</span>
           <span class="more" data-i18n="day.read">Read</span>
         </summary>
@@ -1232,7 +1251,7 @@
       <div class="method-card">
         <i class="ph ph-compass icon"></i>
         <div class="title" data-i18n="mth.c3_title">Andean Path · The Chakana</div>
-        <p data-i18n="mth.c3_p">One Chakana ceremony on Friday night, led by Dario. The four elements and the directions of Andean medicine. Water and stone. Fire and breath. Dario is the organizer of the expedition and the lead facilitator of the arc, holding the alliance with our Cofán brothers, leaders of their culture, and the rhythm of the journey.</p>
+        <p data-i18n="mth.c3_p">One Chakana ceremony late in the week, led by Dario. The four elements and the directions of Andean medicine. Water and stone. Fire and breath. Dario is the organizer of the expedition and the lead facilitator of the arc, holding the alliance with our Cofán brothers, leaders of their culture, and the rhythm of the journey.</p>
       </div>
     </div>
 
@@ -1429,16 +1448,16 @@
     <h2 data-i18n="tl.h2">The journey, <em>at a glance.</em></h2>
 
     <div class="timeline">
-      <div class="tl-when" data-i18n="tl.w1">July 2026 onward</div>
+      <div class="tl-when" data-i18n="tl.w1">Now</div>
       <div class="tl-what" data-i18n="tl.t1">Applications open. Each one read personally. Each person met through individual conversation.</div>
 
       <div class="tl-when" data-i18n="tl.w2">Before the immersion</div>
       <div class="tl-what" data-i18n="tl.t2">Four online IFS group sessions with Dario and Anna. Dietary and body preparation guidelines.</div>
 
-      <div class="tl-when" data-i18n="tl.w3">December 7, 2026</div>
+      <div class="tl-when" data-i18n="tl.w3">December 2027</div>
       <div class="tl-what" data-i18n="tl.t3">Meeting in Medellín. Beginning of the immersion in Cocorná.</div>
 
-      <div class="tl-when" data-i18n="tl.w4">December 13, 2026</div>
+      <div class="tl-when" data-i18n="tl.w4">Six nights later</div>
       <div class="tl-what" data-i18n="tl.t4">Closing of the immersion. Return home.</div>
 
       <div class="tl-when" data-i18n="tl.w5">After the return</div>
@@ -1483,7 +1502,7 @@
     </details>
     <details>
       <summary data-i18n="faq.q8">How do I get there? Are flights included?</summary>
-      <p data-i18n="faq.a8">Fly into Medellín (MDE, José María Córdova International Airport). We meet on Monday December 7 in the morning at a central point in Medellín, and travel together by shared transfer to Cocorná, about two hours east. Return on Sunday December 13 the same way. International flights are not included; we are happy to help with timing and recommendations.</p>
+      <p data-i18n="faq.a8">Fly into Medellín (MDE, José María Córdova International Airport). We meet on the first morning at a central point in Medellín, and travel together by shared transfer to Cocorná, about two hours east. Return the same way on the last day. International flights are not included; we are happy to help with timing and recommendations.</p>
     </details>
     <details>
       <summary data-i18n="faq.q9">How do you handle safety on the ground?</summary>
@@ -1647,10 +1666,10 @@
   var I18N = {
     es: {
       "hero.kicker":"Tierra de Agua · Cocorná, Colombia",
-      "topbar.dates":"7 al 13 de diciembre de 2026",
-      "hero.dates":"7 al 13 de diciembre de 2026",
+      "topbar.dates":"Diciembre de 2027 · fechas exactas pronto",
+      "hero.dates":"Diciembre de 2027 · fechas exactas pronto",
       "meta.dates_k":"Fechas",
-      "meta.dates_v":"7 al 13 de diciembre de 2026",
+      "meta.dates_v":"Diciembre de 2027",
       "hero.h1":"Una expedición hacia la<br/><em>profundidad de quienes somos.</em>",
       "hero.sub":"Seis noches con maestros de medicina en la selva de Colombia. Sesiones grupales de preparación e integración con IFS, movimiento y Shakti, música en vivo y comida deliciosa. Un grupo pequeño, trabajo profundo, un lugar hermoso.",
       "hero.cta1":"Escríbenos",
@@ -1661,7 +1680,7 @@
       "meta.lang_k":"Idioma",
       "meta.lang_v":"Inglés",
       "meta.arrival_k":"Llegada",
-      "meta.note":"La expedición se realiza en inglés. Entre nosotros también hablamos italiano, español, portugués, polaco y ruso.",
+      "meta.note":"Confirmaremos las fechas exactas muy pronto. La expedición se realiza en inglés. Entre nosotros también hablamos italiano, español, portugués, polaco y ruso.",
       "inv.kicker":"01 · La invitación",
       "inv.h2":"Un camino hacia adentro, <em>recorrido juntos.</em>",
       "inv.p1":"Un viaje transformador y espiritual con una estructura clara. Cuatro sesiones de preparación. Seis noches en una eco-reserva en Cocorná. Cuatro sesiones de integración grupal. La semana en Colombia es el corazón de un proceso profundo de reconexión con la naturaleza dentro y fuera de nosotros. Explorando lo que funciona y lo que está listo para cambiar y soltar.",
@@ -1686,7 +1705,7 @@
       "ch1.h3":"Cuatro sesiones para llegar, antes de llegar.",
       "ch1.p":"Una conversación exploratoria de 30 minutos con uno de nosotros, para entender qué te llama y qué pide la experiencia a cambio. Cuatro sesiones de coaching IFS con Dario y Anna, dentro del marco de los Sistemas de Familia Interna. Juntos te encontramos donde estás. Nombramos lo que buscas. Conocemos las partes de ti que protegen, las que temen lo que estás por hacer y las que han cargado lo que era demasiado pesado. Dieta y cuidado del cuerpo para las semanas previas. Empiezas a encontrarte con tu Self antes de encontrarte con las plantas sagradas.",
       "ch2.tag":"Capítulo 02 · Inmersión",
-      "ch2.when":"7 al 13 de diciembre de 2026 · Cocorná",
+      "ch2.when":"Diciembre de 2027 · Cocorná · fechas exactas pronto",
       "ch2.h3":"Seis noches sostenidas por la tierra.",
       "ch2.p":"Dos ceremonias nocturnas de Yagé con el Taita Nelson, guardián del linaje Cofán. Una ceremonia de la Chakana con Dario Hampi Pakari, kuraka en el linaje del Sumak Kawsay y psicólogo. Círculos de integración IFS durante la estancia y entre ceremonias. Shakti Dance, movimiento funcional, trabajo corporal en comunidad. Silencio cuando es momento de silencio, canto cuando es momento de cantar. El fuego que sostiene el círculo en la noche. Caminatas por el bosque primario. La piscina, el río, el jacuzzi escondido entre los árboles. Comida saboreada despacio, entre personas que se van volviendo un círculo.",
       "ch3.tag":"Capítulo 03 · Integración",
@@ -1697,19 +1716,19 @@
       "day.h2":"Día a día.",
       "day.sub":"Un ritmo semanal de ceremonia, integración, cuerpo y descanso. El programa puede adaptarse según la dinámica del grupo.",
       "day.read":"Leer",
-      "day.mon_when":"Lun · 7 dic","day.mon_what":"Llegada",
+      "day.mon_when":"Día 1","day.mon_what":"Llegada",
       "day.mon_body":"Punto de encuentro en Medellín por la mañana. Traslado compartido a Cocorná. Llegada, almuerzo y círculo de apertura con la presentación del viaje que comienza. Sesión de movimiento con Christian y Andrew para soltar el cuerpo después del viaje.",
-      "day.tue_when":"Mar · 8 dic","day.tue_what":"Primera ceremonia",
+      "day.tue_when":"Día 2","day.tue_what":"Primera ceremonia",
       "day.tue_body":"Taller de Shakti Dance con Paulina por la mañana. Tarde de descanso o sesiones individuales opcionales. <em>Ceremonia nocturna con el Taita Nelson.</em>",
-      "day.wed_when":"Mié · 9 dic","day.wed_what":"Segunda ceremonia",
+      "day.wed_when":"Día 3","day.wed_what":"Segunda ceremonia",
       "day.wed_body":"Mañana de descanso e integración. Tarde de trabajo corporal suave con Andrew y Christian. <em>Segunda ceremonia nocturna con el Taita Nelson.</em>",
-      "day.thu_when":"Jue · 10 dic","day.thu_what":"Integración y cuerpo",
+      "day.thu_when":"Día 4","day.thu_what":"Integración y cuerpo",
       "day.thu_body":"Un día dedicado a la integración y el descanso. Tiempo en la piscina, el jacuzzi, en la naturaleza. Círculo IFS por la tarde, abriendo con movimiento y conexión somática con Christian. Sesiones opcionales de acupuntura y trabajo corporal con Andrew, Christian y Adrian.",
-      "day.fri_when":"Vie · 11 dic","day.fri_what":"Ceremonia de la Chakana",
+      "day.fri_when":"Día 5","day.fri_what":"Ceremonia de la Chakana",
       "day.fri_body":"Caminata por la tierra y visita a una plantación local de caña de azúcar. Tarde de descanso o sesiones individuales opcionales. Círculo IFS al caer la tarde para establecer intenciones. <em>Noche: ceremonia de la Chakana con Dario.</em>",
-      "day.sat_when":"Sáb · 12 dic","day.sat_what":"Celebración",
+      "day.sat_when":"Día 6","day.sat_what":"Celebración",
       "day.sat_body":"Comida deliciosa, actividades en el agua, música en vivo y relax. Sesiones individuales opcionales.",
-      "day.sun_when":"Dom · 13 dic","day.sun_what":"Cierre y regreso",
+      "day.sun_when":"Día 7","day.sun_what":"Cierre y regreso",
       "day.sun_body":"Círculo de cierre, soltar y seguir adelante. Traslado a Medellín por la mañana o al inicio de la tarde.",
       "land.kicker":"05 · La tierra",
       "land.h2":"Tierra de Agua.",
@@ -1734,7 +1753,7 @@
       "mth.c2_title":"Linaje Cofán · Yagé",
       "mth.c2_p":"Dos ceremonias nocturnas con el Taita Nelson, guardián de medicina del pueblo Cofán. Los Cofán son una nación amazónica de Colombia y Ecuador. Menos de dos mil personas. Guardianes de más de un millón de acres de selva. Su tradición sostiene que el mundo tiene tres niveles, y que los <em>invisibles</em>, los guardianes del bosque, pueden encontrarse en la profundidad de la ceremonia. El Yagé se sirve en los protocolos de su linaje, en una alianza construida a lo largo de años de trabajo conjunto.",
       "mth.c3_title":"Camino andino · La Chakana",
-      "mth.c3_p":"Una ceremonia de la Chakana el viernes por la noche, guiada por Dario. Los cuatro elementos y las direcciones de la medicina andina. Agua y piedra. Fuego y aliento. Dario es el organizador de la expedición y el facilitador principal de todo el arco, sosteniendo la alianza con nuestros hermanos Cofán, líderes de su cultura, y el ritmo del viaje.",
+      "mth.c3_p":"Una ceremonia de la Chakana hacia el final de la semana, guiada por Dario. Los cuatro elementos y las direcciones de la medicina andina. Agua y piedra. Fuego y aliento. Dario es el organizador de la expedición y el facilitador principal de todo el arco, sosteniendo la alianza con nuestros hermanos Cofán, líderes de su cultura, y el ritmo del viaje.",
       "mth.mod_label":"Las artes de sanación entretejidas",
       "mth.mod_title":"Un equipo de practicantes, <em>trabajando en coherencia.</em>",
       "mod1.h":"Círculos IFS",
@@ -1806,13 +1825,13 @@
       "app.s4_body":"En las semanas previas a la inmersión comienzan tus cuatro sesiones de preparación IFS en línea. Ya estás en el trabajo antes de llegar a Colombia.",
       "tl.kicker":"11 · Cronograma",
       "tl.h2":"El viaje, <em>de un vistazo.</em>",
-      "tl.w1":"Desde julio de 2026",
+      "tl.w1":"Ahora",
       "tl.t1":"Aplicaciones abiertas. Cada una leída en persona. Cada persona conocida a través de una conversación individual.",
       "tl.w2":"Antes de la inmersión",
       "tl.t2":"Cuatro sesiones grupales de IFS en línea con Dario y Anna. Dieta y preparación del cuerpo.",
-      "tl.w3":"7 de diciembre de 2026",
+      "tl.w3":"Diciembre de 2027",
       "tl.t3":"Encuentro en Medellín. Inicio de la inmersión en Cocorná.",
-      "tl.w4":"13 de diciembre de 2026",
+      "tl.w4":"Seis noches después",
       "tl.t4":"Cierre de la inmersión. Regreso a casa.",
       "tl.w5":"Después del regreso",
       "tl.t5":"Cuatro sesiones grupales de integración en línea. Comunidad opcional y continua para participantes.",
@@ -1833,7 +1852,7 @@
       "faq.q7":"¿Cómo son las habitaciones? ¿Puedo ver los espacios antes de decidir?",
       "faq.a7":"Sí. En esta página y en el sitio web de la propiedad hay fotos y un recorrido en video del Ecohotel Tierra de Agua. Las opciones de habitación van desde individual hasta doble o compartida, según lo que sientas adecuado para ti. Te guiaremos por las opciones en nuestra conversación, y el precio final depende de la habitación que elijas.",
       "faq.q8":"¿Cómo llego? ¿Están incluidos los vuelos?",
-      "faq.a8":"Vuela a Medellín (MDE, Aeropuerto Internacional José María Córdova). Nos encontramos el lunes 7 de diciembre por la mañana en un punto céntrico de Medellín y viajamos juntos en traslado compartido a Cocorná, a unas dos horas al este. El regreso es el domingo 13 de diciembre de la misma forma. Los vuelos internacionales no están incluidos; con gusto te ayudamos con los horarios y recomendaciones.",
+      "faq.a8":"Vuela a Medellín (MDE, Aeropuerto Internacional José María Córdova). Nos encontramos la primera mañana en un punto céntrico de Medellín y viajamos juntos en traslado compartido a Cocorná, a unas dos horas al este. El regreso es el último día de la misma forma. Los vuelos internacionales no están incluidos; con gusto te ayudamos con los horarios y recomendaciones.",
       "faq.q9":"¿Cómo gestionan la seguridad en el lugar?",
       "faq.a9":"El Ecohotel Tierra de Agua es privado y cuenta con personal en todo momento. Toda la logística dentro del país, desde Medellín en adelante, la gestiona nuestro equipo. Una revisión de salud y disposición precede a la confirmación.",
       "faq.q10":"¿Cuándo debo aplicar? ¿Y si está lleno?",
@@ -1861,10 +1880,10 @@
     },
     ru: {
       "hero.kicker":"Tierra de Agua · Кокорна, Колумбия",
-      "topbar.dates":"7–13 декабря 2026",
-      "hero.dates":"7–13 декабря 2026",
+      "topbar.dates":"Декабрь 2027 · точные даты скоро",
+      "hero.dates":"Декабрь 2027 · точные даты скоро",
       "meta.dates_k":"Даты",
-      "meta.dates_v":"7–13 декабря 2026",
+      "meta.dates_v":"Декабрь 2027",
       "hero.h1":"Экспедиция вглубь<br/><em>самих себя.</em>",
       "hero.sub":"Шесть ночей с хранителями медицины в джунглях Колумбии. Групповые IFS-сессии подготовки и интеграции, телесные практики и Shakti Dance, живая музыка и вкусная еда. Небольшая группа, глубокая работа, красивое место.",
       "hero.cta1":"Напиши нам",
@@ -1877,7 +1896,7 @@
       "meta.lang_v":"Английский",
       "meta.arrival_k":"Прибытие",
       "meta.arrival_v":"Медельин",
-      "meta.note":"Экспедиция проходит на английском. Между собой мы также говорим на итальянском, испанском, португальском, польском и русском.",
+      "meta.note":"Точные даты подтвердим совсем скоро. Экспедиция проходит на английском. Между собой мы также говорим на итальянском, испанском, португальском, польском и русском.",
       "inv.kicker":"01 · Приглашение",
       "inv.h2":"Путь внутрь себя, <em>пройденный вместе.</em>",
       "inv.p1":"Структурированное путешествие трансформации и духовного роста. Четыре сессии подготовки. Шесть ночей в экозаповеднике в Кокорне. Четыре сессии групповой интеграции. Неделя в Колумбии становится сердцем глубокого процесса воссоединения с природой внутри и вокруг нас. Мы исследуем, что работает, а что готово измениться и уйти.",
@@ -1902,7 +1921,7 @@
       "ch1.h3":"Четыре сессии, чтобы прийти к себе, ещё до того, как ты приедешь.",
       "ch1.p":"30-минутный ознакомительный разговор с кем-то из команды, чтобы понять, что тебя зовёт и чего этот опыт просит взамен. Четыре сессии IFS-коучинга с Дарио и Анной, по методу Internal Family Systems (IFS). Вместе мы встречаем тебя там, где ты есть. Мы называем то, что ты ищешь. Мы знакомимся с твоими частями, которые защищают, с частями, которые боятся того, что тебе предстоит, и с частями, которые несли непосильную ношу. Рекомендации по питанию и подготовке тела в недели перед началом. Ты начинаешь встречаться с собой ещё до того, как встретишься со священными растениями.",
       "ch2.tag":"Глава 02 · Погружение",
-      "ch2.when":"7–13 декабря 2026 · Кокорна",
+      "ch2.when":"Декабрь 2027 · Кокорна · точные даты скоро",
       "ch2.h3":"Шесть ночей, которые держит земля.",
       "ch2.p":"Две ночные церемонии Yagé с Тайтой Нельсоном, хранителем линии кофан. Одна церемония Чакана с Дарио Хампи Пакари, куракой линии Сумак Кавсай и психологом. Круги IFS-интеграции во время пребывания и между церемониями. Shakti Dance, функциональное движение, телесная работа в группе. Тишина, когда время для тишины, и песня, когда время для песни. Огонь, который держит круг ночью. Походы через девственный лес. Бассейн, река, джакузи, спрятанное среди деревьев. Еда, которую едят неспешно, среди людей, которые становятся одним кругом.",
       "ch3.tag":"Глава 03 · Интеграция",
@@ -1913,19 +1932,19 @@
       "day.h2":"День за днём.",
       "day.sub":"Недельный ритм церемоний, интеграции, тела и отдыха. Программа может меняться в зависимости от динамики группы.",
       "day.read":"Читать",
-      "day.mon_when":"Пн · 7 дек","day.mon_what":"Прибытие",
+      "day.mon_when":"День 1","day.mon_what":"Прибытие",
       "day.mon_body":"Утром общая точка сбора в Медельине. Совместный трансфер в Кокорну. Прибытие, обед и открывающий круг с рассказом о предстоящем путешествии. Сессия движения с Кристианом и Эндрю, чтобы расслабить тело после дороги.",
-      "day.tue_when":"Вт · 8 дек","day.tue_what":"Первая церемония",
+      "day.tue_when":"День 2","day.tue_what":"Первая церемония",
       "day.tue_body":"Утренний воркшоп Shakti Dance с Паулиной. Днём отдых или индивидуальные сессии по желанию. <em>Ночная церемония с Тайтой Нельсоном.</em>",
-      "day.wed_when":"Ср · 9 дек","day.wed_what":"Вторая церемония",
+      "day.wed_when":"День 3","day.wed_what":"Вторая церемония",
       "day.wed_body":"Утро отдыха и интеграции. Днём мягкая телесная работа с Эндрю и Кристианом. <em>Вторая ночная церемония с Тайтой Нельсоном.</em>",
-      "day.thu_when":"Чт · 10 дек","day.thu_what":"Интеграция и тело",
+      "day.thu_when":"День 4","day.thu_what":"Интеграция и тело",
       "day.thu_body":"День, посвящённый интеграции и отдыху. Время у бассейна, в джакузи, на природе. Днём круг IFS, который начинается с движения и телесной связи вместе с Кристианом. По желанию сессии акупунктуры и телесной работы с Эндрю, Кристианом и Адрианом.",
-      "day.fri_when":"Пт · 11 дек","day.fri_what":"Церемония Чакана",
+      "day.fri_when":"День 5","day.fri_what":"Церемония Чакана",
       "day.fri_body":"Прогулка по территории и визит на местную плантацию сахарного тростника. Днём отдых или индивидуальные сессии по желанию. Ранним вечером круг IFS для постановки намерений. <em>Ночью церемония Чакана с Дарио.</em>",
-      "day.sat_when":"Сб · 12 дек","day.sat_what":"Праздник",
+      "day.sat_when":"День 6","day.sat_what":"Праздник",
       "day.sat_body":"Вкусная еда, водные активности, живая музыка и расслабление. Индивидуальные сессии по желанию.",
-      "day.sun_when":"Вс · 13 дек","day.sun_what":"Завершение и возвращение",
+      "day.sun_when":"День 7","day.sun_what":"Завершение и возвращение",
       "day.sun_body":"Закрывающий круг: попрощаться и двинуться дальше. Трансфер в Медельин утром или сразу после полудня.",
       "land.kicker":"05 · Земля",
       "land.h2":"Tierra de Agua. <em>Земля воды.</em>",
@@ -1950,7 +1969,7 @@
       "mth.c2_title":"Линия кофан · Yagé",
       "mth.c2_p":"Две ночные церемонии с Тайтой Нельсоном, хранителем медицины народа кофан. Кофан это амазонский народ Колумбии и Эквадора. Их меньше двух тысяч. Хранители более миллиона акров тропического леса. Их традиция говорит, что у мира есть три уровня и что с <em>невидимыми</em>, хранителями леса, можно встретиться в глубине церемонии. Yagé подаётся по протоколам его линии, в союзе, выстроенном за годы совместной работы.",
       "mth.c3_title":"Андский путь · Чакана",
-      "mth.c3_p":"Одна церемония Чакана в пятницу ночью, которую ведёт Дарио. Четыре стихии и направления андской медицины. Вода и камень. Огонь и дыхание. Дарио, организатор экспедиции и ведущий фасилитатор всего процесса, держит союз с нашими братьями кофан, лидерами своей культуры, и ритм всего путешествия.",
+      "mth.c3_p":"Одна церемония Чакана ночью в конце недели, которую ведёт Дарио. Четыре стихии и направления андской медицины. Вода и камень. Огонь и дыхание. Дарио, организатор экспедиции и ведущий фасилитатор всего процесса, держит союз с нашими братьями кофан, лидерами своей культуры, и ритм всего путешествия.",
       "mth.mod_label":"Целительные практики, вплетённые в путешествие",
       "mth.mod_title":"Команда проводников, <em>работающая слаженно.</em>",
       "mod1.h":"Круги IFS",
@@ -2029,13 +2048,13 @@
       "app.s4_body":"В недели перед погружением начинаются твои четыре онлайн-сессии подготовки IFS. Ты уже в работе ещё до приезда в Колумбию.",
       "tl.kicker":"11 · Хронология",
       "tl.h2":"Путешествие <em>одним взглядом.</em>",
-      "tl.w1":"С июля 2026",
+      "tl.w1":"Сейчас",
       "tl.t1":"Открыт приём заявок. Каждую читаем лично. С каждым знакомимся в личном разговоре.",
       "tl.w2":"Перед погружением",
       "tl.t2":"Четыре групповые онлайн-сессии IFS с Дарио и Анной. Рекомендации по питанию и подготовке тела.",
-      "tl.w3":"7 декабря 2026",
+      "tl.w3":"Декабрь 2027",
       "tl.t3":"Встреча в Медельине. Начало погружения в Кокорне.",
-      "tl.w4":"13 декабря 2026",
+      "tl.w4":"Через шесть ночей",
       "tl.t4":"Завершение погружения. Возвращение домой.",
       "tl.w5":"После возвращения",
       "tl.t5":"Четыре групповые онлайн-сессии интеграции. Постоянный круг для участников, по желанию.",
@@ -2056,7 +2075,7 @@
       "faq.q7":"Какие там номера? Можно ли увидеть пространства до решения?",
       "faq.a7":"Да. Фотографии и видеообзор экоотеля Tierra de Agua есть на этой странице и на сайте отеля. Номера бывают одноместные, двухместные и общие, в зависимости от того, что тебе ближе. На разговоре мы разберём варианты вместе, а итоговая цена зависит от выбранного номера.",
       "faq.q8":"Как добраться? Входят ли перелёты?",
-      "faq.a8":"Прилетай в Медельин (MDE, международный аэропорт Хосе Мария Кордова). Мы встречаемся в понедельник, 7 декабря, утром в центре Медельина и вместе едем общим трансфером в Кокорну, примерно два часа на восток. Возвращаемся в воскресенье, 13 декабря, тем же путём. Международные перелёты не входят. Мы с радостью поможем с расписанием и советами.",
+      "faq.a8":"Прилетай в Медельин (MDE, международный аэропорт Хосе Мария Кордова). Мы встречаемся утром первого дня в центре Медельина и вместе едем общим трансфером в Кокорну, примерно два часа на восток. Возвращаемся в последний день тем же путём. Международные перелёты не входят. Мы с радостью поможем с расписанием и советами.",
       "faq.q9":"Как вы обеспечиваете безопасность на месте?",
       "faq.a9":"Экоотель Tierra de Agua частный, с персоналом на всё время. Всю логистику внутри страны, начиная с Медельина, берёт на себя наша команда. Проверка здоровья и готовности проходит до подтверждения.",
       "faq.q10":"Когда подавать заявку? А если мест уже нет?",
@@ -2085,8 +2104,8 @@
   };
 
   var titles = {
-    es: "Cocorná · Una expedición hacia la profundidad de quienes somos · Diciembre 2026 · FINO",
-    ru: "Кокорна · Экспедиция вглубь того, кто мы есть · Декабрь 2026 · FINO"
+    es: "Cocorná · Una expedición hacia la profundidad de quienes somos · Diciembre 2027 · FINO",
+    ru: "Кокорна · Экспедиция вглубь того, кто мы есть · Декабрь 2027 · FINO"
   };
   var origTitle = document.title;
   var nodes = Array.prototype.slice.call(document.querySelectorAll('[data-i18n]'));
